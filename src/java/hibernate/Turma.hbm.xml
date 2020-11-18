@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/11/2020 23:09:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.Turma" table="turma" catalog="av2_dev_bd" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.TurmaId">
+            <key-property name="materiaIdmateria" type="int">
+                <column name="materia_idmateria" />
+            </key-property>
+            <key-property name="professorIdprofessor" type="int">
+                <column name="professor_idprofessor" />
+            </key-property>
+        </composite-id>
+        <property name="codigoTurma" type="string">
+            <column name="codigo_turma" length="3" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

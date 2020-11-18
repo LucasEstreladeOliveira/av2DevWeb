@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16/11/2020 23:09:47 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="hibernate.AlunoHasTurma" table="aluno_has_turma" catalog="av2_dev_bd" optimistic-lock="version">
+        <composite-id name="id" class="hibernate.AlunoHasTurmaId">
+            <key-property name="alunoIdaluno" type="int">
+                <column name="aluno_idaluno" />
+            </key-property>
+            <key-property name="turmaMateriaIdmateria" type="int">
+                <column name="turma_materia_idmateria" />
+            </key-property>
+            <key-property name="turmaProfessorIdprofessor" type="int">
+                <column name="turma_professor_idprofessor" />
+            </key-property>
+        </composite-id>
+        <property name="av1" type="big_decimal">
+            <column name="AV1" precision="1" scale="1" />
+        </property>
+        <property name="aps1" type="big_decimal">
+            <column name="APS_1" precision="1" scale="1" />
+        </property>
+        <property name="av2" type="big_decimal">
+            <column name="AV2" precision="1" scale="1" />
+        </property>
+        <property name="aps2" type="big_decimal">
+            <column name="APS_2" precision="1" scale="1" />
+        </property>
+        <property name="av3" type="big_decimal">
+            <column name="AV3" precision="1" scale="1" />
+        </property>
+    </class>
+</hibernate-mapping>
