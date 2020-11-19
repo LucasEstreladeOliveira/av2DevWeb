@@ -42,6 +42,9 @@ public class auth extends HttpServlet {
                     auth.setMatricula(listaAluno.get(i).getMatricula());
                     auth.setNome(listaAluno.get(i).getNome());
                     auth.setAuth(true);
+                    auth.setId(listaAluno.get(i).getIdaluno());
+                    auth.setIsProf(false);
+
                     break;
                 }
             };
@@ -60,6 +63,8 @@ public class auth extends HttpServlet {
                     auth.setMatricula(listaProfessor.get(i).getMatricula());
                     auth.setNome(listaProfessor.get(i).getNome());
                     auth.setAuth(true);
+                    auth.setIsProf(true);
+                    auth.setId(listaProfessor.get(i).getIdprofessor());
                     break;
                 }
                 };

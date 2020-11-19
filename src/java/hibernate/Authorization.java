@@ -11,12 +11,14 @@ package hibernate;
  */
 public class Authorization {
     
-    Boolean auth;
-    String matricula;
-    String nome;
+    private Boolean auth;
+    private Integer id;
+    private String matricula;
+    private String nome;
+    private Boolean isProf;
 
 
-    public boolean getAuth() {
+    public Boolean getAuth() {
         return auth;
     }
 
@@ -27,8 +29,16 @@ public class Authorization {
     public String getNome() {
         return nome;
     }
+    
+    public Integer getId() {
+        return id;
+    }
 
-    public void setAuth(boolean auth) {
+    public Boolean getIsProf() {
+        return isProf;
+    }
+    
+    public void setAuth(Boolean auth) {
         this.auth = auth;
     }
 
@@ -40,6 +50,13 @@ public class Authorization {
         this.nome = nome;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setIsProf(Boolean isProf) {
+        this.isProf = isProf;
+    }
     
     
 }

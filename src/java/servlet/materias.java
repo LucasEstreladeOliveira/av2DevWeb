@@ -7,11 +7,13 @@ package servlet;
 
 import com.google.gson.Gson;
 import hibernate.Aluno;
-import hibernate.AlunoHasTurmaId;
 import hibernate.AlunoHasTurmaIdHelper;
 import hibernate.AlunoHelper;
+import hibernate.Authorization;
 import hibernate.Materia;
 import hibernate.MateriaHelper;
+import hibernate.Professor;
+import hibernate.ProfessorHelper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -34,24 +36,38 @@ public class materias extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             Scanner s = new Scanner(request.getInputStream(), "UTF-8").useDelimiter("\\A");
             Gson g = new Gson();
+            
+            Authorization user = g.fromJson(s.next(), Authorization.class);
+            ArrayList<Integer> listMateriasId = null;
 
-            Aluno aluno = g.fromJson(s.next(), Aluno.class);
-            
-            AlunoHelper helperAluno = new AlunoHelper();
-            Aluno al = helperAluno.getAluno(aluno.getMatricula());
-            
-            AlunoHasTurmaIdHelper idAlunoHasTurmaHelper = new AlunoHasTurmaIdHelper();
-            
-            ArrayList<AlunoHasTurmaId> listIdAlunoHasTurma = idAlunoHasTurmaHelper.getAlunoHasTurmaId(al.getIdaluno());
-            System.out.println(listIdAlunoHasTurma.get(0));
-            MateriaHelper materiaHelper = new MateriaHelper();
-            
-            ArrayList<Materia> materiaList = new ArrayList<>();
-            for(int i = 0 ; i < listIdAlunoHasTurma.size() ; i++){
-                materiaList.add(materiaHelper.getMateria(listIdAlunoHasTurma.get(i).getTurmaMateriaIdmateria()));            
+            if(user.getIsProf() == false ){
+                AlunoHelper helperAluno = new AlunoHelper();
+                Aluno al = helperAluno.getAluno(user.getMatricula());
+    
+                AlunoHasTurmaIdHelper alunoHasTurmaIdHelper = new AlunoHasTurmaIdHelper();
+                listMateriasId = alunoHasTurmaIdHelper.getIdTurmaAluno(al.getIdaluno());
+                          
+            } else {
+                ProfessorHelper helperProfessor = new ProfessorHelper();
+                Professor prof = helperProfessor.getProfessor(user.getMatricula());
+                
+                AlunoHasTurmaIdHelper professorHasTurmaIdHelper = new AlunoHasTurmaIdHelper();
+                listMateriasId = professorHasTurmaIdHelper.getIdTurmaAluno(prof.getIdprofessor());
             }
             
-            System.out.println(materiaList.get(0));
+            MateriaHelper materiaHelper = new MateriaHelper();
+            ArrayList<Materia> materias = new ArrayList<>();
+            Integer idMateria;
+            for(int i=0 ; i < listMateriasId.size(); i++) {
+                idMateria = listMateriasId.get(i);
+                materias.add(materiaHelper.getMateria(idMateria));
+            }
+            String json = g.toJson(materias);
+            out.println(json);
+            
+            
+            
+    
             
         }
     }
@@ -96,3 +112,4 @@ public class materias extends HttpServlet {
     }// </editor-fold>
 
 }
+    

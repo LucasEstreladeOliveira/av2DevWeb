@@ -11,11 +11,11 @@ public class AlunoHasTurma  implements java.io.Serializable {
 
 
      private AlunoHasTurmaId id;
-     private BigDecimal av1;
-     private BigDecimal aps1;
-     private BigDecimal av2;
-     private BigDecimal aps2;
-     private BigDecimal av3;
+     private BigDecimal AV1;
+     private BigDecimal APS_1;
+     private BigDecimal AV2;
+     private BigDecimal APS_2;
+     private BigDecimal AV3;
 
     public AlunoHasTurma() {
     }
@@ -26,11 +26,11 @@ public class AlunoHasTurma  implements java.io.Serializable {
     }
     public AlunoHasTurma(AlunoHasTurmaId id, BigDecimal av1, BigDecimal aps1, BigDecimal av2, BigDecimal aps2, BigDecimal av3) {
        this.id = id;
-       this.av1 = av1;
-       this.aps1 = aps1;
-       this.av2 = av2;
-       this.aps2 = aps2;
-       this.av3 = av3;
+       this.AV1 = av1;
+       this.APS_1 = aps1;
+       this.AV2 = av2;
+       this.APS_2 = aps2;
+       this.AV3 = av3;
     }
    
     public AlunoHasTurmaId getId() {
@@ -41,39 +41,39 @@ public class AlunoHasTurma  implements java.io.Serializable {
         this.id = id;
     }
     public BigDecimal getAv1() {
-        return this.av1;
+        return this.AV1;
     }
     
     public void setAv1(BigDecimal av1) {
-        this.av1 = av1;
+        this.AV1 = av1;
     }
     public BigDecimal getAps1() {
-        return this.aps1;
+        return this.APS_1;
     }
     
     public void setAps1(BigDecimal aps1) {
-        this.aps1 = aps1;
+        this.APS_1 = aps1;
     }
     public BigDecimal getAv2() {
-        return this.av2;
+        return this.AV2;
     }
     
     public void setAv2(BigDecimal av2) {
-        this.av2 = av2;
+        this.AV2 = av2;
     }
     public BigDecimal getAps2() {
-        return this.aps2;
+        return this.APS_2;
     }
     
     public void setAps2(BigDecimal aps2) {
-        this.aps2 = aps2;
+        this.APS_2 = aps2;
     }
     public BigDecimal getAv3() {
-        return this.av3;
+        return this.AV3;
     }
     
     public void setAv3(BigDecimal av3) {
-        this.av3 = av3;
+        this.AV3 = av3;
     }
 
 

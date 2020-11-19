@@ -12,6 +12,7 @@ public class AlunoHasTurmaId  implements java.io.Serializable {
      private int alunoIdaluno;
      private int turmaMateriaIdmateria;
      private int turmaProfessorIdprofessor;
+     private Boolean isProf;
 
     public AlunoHasTurmaId() {
     }
@@ -20,6 +21,13 @@ public class AlunoHasTurmaId  implements java.io.Serializable {
        this.alunoIdaluno = alunoIdaluno;
        this.turmaMateriaIdmateria = turmaMateriaIdmateria;
        this.turmaProfessorIdprofessor = turmaProfessorIdprofessor;
+    }
+
+    public AlunoHasTurmaId(int alunoIdaluno, int turmaMateriaIdmateria, int turmaProfessorIdprofessor, Boolean ifProf) {
+        this.alunoIdaluno = alunoIdaluno;
+        this.turmaMateriaIdmateria = turmaMateriaIdmateria;
+        this.turmaProfessorIdprofessor = turmaProfessorIdprofessor;
+        this.isProf = ifProf;
     }
    
     public int getAlunoIdaluno() {
@@ -42,6 +50,14 @@ public class AlunoHasTurmaId  implements java.io.Serializable {
     
     public void setTurmaProfessorIdprofessor(int turmaProfessorIdprofessor) {
         this.turmaProfessorIdprofessor = turmaProfessorIdprofessor;
+    }
+
+    public Boolean getIsProf() {
+        return isProf;
+    }
+
+    public void setIsProf(Boolean isProf) {
+        this.isProf = isProf;
     }
 
 

@@ -50,4 +50,20 @@ public class AlunoHelper {
         }
         return aluno;
     }
+    
+        public Aluno getMatriculaById(Integer id) {
+        ArrayList<Aluno> matriculaAluno = null;
+        Aluno matricula = null;
+        Session session =  sf.openSession();
+        try {
+            Query q = session.createQuery("from Aluno as aluno where aluno.id=" + id);
+            matriculaAluno = (ArrayList<Aluno>) q.list();
+            matricula = matriculaAluno.get(0);
+        } catch( Exception e) {
+            System.out.println(e);
+        } finally {
+            session.close();
+        }
+        return matricula;
+    }
 }
