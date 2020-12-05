@@ -30,7 +30,6 @@ public class main {
         System.out.println("======");
         AlunoHelper helper = new AlunoHelper();
         List<Aluno> listaAlunos = helper.getAlunos();
-        System.out.println(listaAlunos);
         listaAlunos.forEach((al) -> {
             System.out.println(al.getNome());
         });                   

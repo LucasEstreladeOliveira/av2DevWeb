@@ -23,4 +23,8 @@ INSERT INTO materia (nome)
 INSERT INTO professor (matricula,nome,senha)
     VALUES  ('2010202021', 'Anderson', 'Anderson2010'),
             ('2010202120', 'Marcelo Perantoni', 'Marcelo2010');
-            
+
+-- Insert tabela turma  
+INSERT INTO turma (materia_idmateria ,professor_idprofessor ,codigo_turma)
+    VALUES  (1, 1, 1),
+            (2, 2, 2);

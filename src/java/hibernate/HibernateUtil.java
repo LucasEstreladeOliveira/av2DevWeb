@@ -67,7 +67,7 @@ public class HibernateUtil {
     
     public void insert() throws SQLException, IOException, SqlToolError{
         connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/av2_dev_bd?user=root&password=admin&useTimezone=true&serverTimezone=UTC");
-        System.out.print("\nInserindo Usuários...");
+        System.out.print("\nInserindo Dados...");
         
         SqlFile sf = new SqlFile(new File(".\\Insert.sql"));
         sf.setConnection(connection);
